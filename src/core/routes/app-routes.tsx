@@ -4,7 +4,7 @@ import RoutesWithNotFound from "./routes-with-not-found";
 import PrivateGuard from "./private-guard";
 
 //lazy load
-const LoginPage = lazy(() => import("../../modules/auth/pages/login-page"));
+const SignInPage = lazy(() => import("../../modules/auth/pages/sign-in"));
 const RegisterPage = lazy(
   () => import("../../modules/auth/pages/register-page")
 );
@@ -32,7 +32,7 @@ const AppRouter = ({ children }: AppRouterProps) => {
           path="auth/login"
           element={
             <Suspense fallback={<LoadingAuth />}>
-              <LoginPage />
+              <SignInPage />
             </Suspense>
           }
         />

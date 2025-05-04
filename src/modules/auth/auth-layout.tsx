@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
@@ -6,8 +6,10 @@ interface Props {
 
 export const AuthLayout = ({ children }: Props) => {
   return (
-    <div>
-      {children}
-    </div>
+    <Fragment>
+      <div className="h-screen w-full">
+        {children}
+      </div>
+    </Fragment>
   );
 };
