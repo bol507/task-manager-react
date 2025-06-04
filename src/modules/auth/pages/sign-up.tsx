@@ -3,7 +3,8 @@ import { AuthLayout } from "../../../shared/layouts/auth-layout"
 import { useNavigate } from "react-router"
 
 
-const SignInPage = () => {
+const SignUpPage = () => {
+  const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -22,6 +23,7 @@ const SignInPage = () => {
         body: JSON.stringify({
           email,
           password,
+          username
         }),
       })
       if (!response.ok) {
@@ -41,6 +43,13 @@ const SignInPage = () => {
       <p className="text-xs text-slate-700 mt-[5px] mb-6">Please enter your details to log in</p>
       <form onSubmit={onSubmit}>
         <div className="flex flex-col gap-4">
+          <input 
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="w-full rounded-lg p-2 border border-slate-300 dark:border-slate-700 focus:border-blue-500 focus:outline-none"
+          />
           <input
             type="email"
             placeholder="Email"
@@ -69,4 +78,4 @@ const SignInPage = () => {
   )
 }
 
-export default SignInPage
+export default SignUpPage

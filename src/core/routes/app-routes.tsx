@@ -5,8 +5,8 @@ import PrivateGuard from "./private-guard";
 
 //lazy load
 const SignInPage = lazy(() => import("../../modules/auth/pages/sign-in"));
-const RegisterPage = lazy(
-  () => import("../../modules/auth/pages/register-page")
+const SignUpPage = lazy(
+  () => import("../../modules/auth/pages/sign-up")
 );
 const DashboardPage = lazy(
   () => import("../../modules/admin/pages/dashboard-page")
@@ -40,7 +40,7 @@ const AppRouter = ({ children }: AppRouterProps) => {
           path="auth/register"
           element={
             <Suspense fallback={<LoadingAuth />}>
-              <RegisterPage />
+              <SignUpPage />
             </Suspense>
           }
         />
